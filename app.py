@@ -9,8 +9,8 @@ logging.basicConfig(level=logging.INFO)
 
 # Initialize Slack Bolt App using environment variables from your .env
 app = App(
-    token="xoxb-2210535565-11393247973702-Ups0qW2P1Z0IqgnrYEHKSS2V",
-    signing_secret="jNROyrtH4R3ekGMbUvotAg6R"
+    SLACK_BOT_TOKEN="xoxb-2210535565-11393247973702-Ups0qW2P1Z0IqgnrYEHKSS2V",
+    SLACK_SIGNING_SECRET="jNROyrtH4R3ekGMbUvotAg6R"
 )
 handler = SlackRequestHandler(app)
 
@@ -42,5 +42,7 @@ def listen_mars(ack, respond):
     handle_mars(respond)
 
 if __name__ == "__main__":
-    print("🚀 OrionBot lifting off on port 3000")
-    flask_app.run(port=3000)
+    # Render automatically assigns a PORT variable; locally we fall back to 3000
+    port = int(os.environ.get("PORT", 3000))
+    print(f"🚀 OrionBot lifting off on port {port}")
+    flask_app.run(host="0.0.0.0", port=port)
