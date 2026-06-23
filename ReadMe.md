@@ -1,59 +1,27 @@
-# 🚀 OrionBot
+OrionBot
 
-OrionBot is a Slack bot I built for the Star Dance. It hooks your workspace into NASA's live data feeds, so instead of tabbing over to a NASA site, you just type a slash command and the data shows up in your channel.
+This is a Slack bot I built for Stardance. It connects your Slack workspace directly to NASA's live data feeds, so instead of opening a NASA site every time you want to check something, you just type a slash command and the data shows up right in your channel.
 
----
+COMMANDS
+/mc-apod - pulls today's Astronomy Picture of the Day (sometimes it's a video instead of a photo)
+/mc-iss - shows where the ISS is right now
+/mc-mars - grabs the latest pictures of Mars from the Rover
 
-## The Commands
+SETUP
+You'll need Python 3.10+, a Slack App with slash commands turned on, and a free NASA API key from api.nasa.gov (DEMO_KEY works fine if you're just testing). You'll also need a public HTTPS URL to point Slack at - ngrok is the easiest way to get one while developing locally.
 
-Three slash commands, three live data pulls:
+Clone the repo, set up a virtual environment, and install the requirements. Copy .env.example to .env and fill in your Slack bot token, signing secret, and NASA API key. Then go set up your Slack App at api.slack.com/apps, add the commands scope and chat:write scope, and create the three slash commands pointing at your /slack/events endpoint.
 
-| Command | What you get |
-|---|---|
-| `/mc-apod` | Today's Astronomy Picture of the Day (sometimes it's a video) |
-| `/mc-iss` | Where the ISS is right now |
-| `/mc-mars` | Latest pictures of Mars from the Rover |
+Run app.py locally and use ngrok to expose it, then paste the ngrok URL into your Slack App's slash command settings. For real deployment I used gunicorn, and it ran fine on both Railway and Render without extra config.
 
----
+DATA SOURCES
+APOD comes from api.nasa.gov/planetary/apod, limited to 1,000 requests an hour on a free key.
+ISS position and crew come from api.open-notify.org, which has no rate limit.
+Mars Rover photos come from api.nasa.gov/mars-photos, also 1,000 requests an hour.
+Reverse geocoding for the ISS map link uses Nominatim from OpenStreetMap, limited to 1 request a second.
 
-## Getting it running
+NOTES
+DEMO_KEY caps out at 30 requests an hour, so it's fine for messing around but you'll want a real key before putting this in front of people. ISS position updates every few seconds, so if you want a fresher location just run /mc-iss again.
 
-### What you'll need
-- Python 3.10+
-- A [Slack App](https://api.slack.com/apps) with slash commands turned on
-- A free [NASA API key](https://api.nasa.gov) (or `DEMO_KEY` if you just want to poke around)
-- A public HTTPS URL — [ngrok](https://ngrok.com) is the easiest way to get one while developing locally
-
-### 1. Grab the code
-
-```bash
-git clone https://github.com/your-handle/orionbot
-cd orionbot
-python -m venv venv
-source venv/bin/activate        # Windows: venv\Scripts\activate
-pip install -r requirements.txt
-```
-
-### 2. Set up your env file
-
-```bash
-cp .env.example .env
-```
-
-Then drop your credentials in:
-
-```env
-SLACK_BOT_TOKEN=xoxb-...
-SLACK_SIGNING_SECRET=...
-NASA_API_KEY=your_key_here
-```
-
-### 3. Set up the Slack App side
-
-1. Head to [api.slack.com/apps](https://api.slack.com/apps) → **Create New App** → From Scratch
-2. Under **OAuth & Permissions**, add these Bot Token Scopes:
-   - `commands`
-   - `chat:write`
-3. Under **Slash Commands**, set up all three commands pointing at the same URL:
-
-|
+LICENSE
+MIT - use it, break it, build on it.
