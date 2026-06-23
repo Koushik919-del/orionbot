@@ -1,20 +1,18 @@
-# 🚀 OrionBot — bringing deep space into Slack
+# 🚀 OrionBot
 
-OrionBot is a Slack bot I built for the NASA GitHub Hackathon (Star Dance). It hooks your workspace directly into NASA's live data feeds, so instead of tabbing over to a NASA site, you just type a slash command and the data shows up in your channel.
+OrionBot is a Slack bot I built for the Star Dance. It hooks your workspace into NASA's live data feeds, so instead of tabbing over to a NASA site, you just type a slash command and the data shows up in your channel.
 
 ---
 
-## What it actually does
+## The Commands 
 
 Three slash commands, three live data pulls:
 
 | Command | What you get |
 |---|---|
-| `/apod` | Today's Astronomy Picture of the Day, plus the science behind it |
-| `/iss-track` | Where the ISS is right now — lat/long and a map link |
-| `/mars-weather` | Latest surface temp on Mars and the current Sol count |
-
-That's it. No fluff, no dashboards to configure — just point-and-shoot space data in Slack.
+| `/mc-apod` | Today's Astronomy Picture of the Day(Sometimes it might be a video)|
+| `/mc-iss` | Where the ISS is right now |
+| `/mc-mars` | Latest pictures of Mars from the rover |
 
 ---
 
@@ -118,14 +116,3 @@ orionbot/
 
 ---
 
-## Good to know
-
-- **InSight technically retired in Dec 2022.** The API still serves up its archived sols, but once that well runs dry, OrionBot automatically falls back to Curiosity rover data via MAAS2 — so `/mars-weather` keeps working either way.
-- **DEMO_KEY is fine for messing around**, but it caps out at 30 req/hr. Grab a real key from [api.nasa.gov](https://api.nasa.gov) before you put this in front of real users.
-- **ISS position refreshes every ~5 seconds.** If you want a fresher fix, just rerun `/iss-track`.
-
----
-
-## License
-
-MIT. Take it, break it, build on it. 🚀
