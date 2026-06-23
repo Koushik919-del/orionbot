@@ -6,9 +6,9 @@ OrionBot adds three quick slash commands to pull **live cosmic data**:
 
 | Command | What You Get |
 |---|---|
-| `/apod` | Today's Astronomy Picture of the Day + breakdown |
-| `/iss-track` | Real-time ISS coordinates + map links |
-| `/mars-weather` | Latest Mars temperature + Sol count from rover telemetry |
+| `/mc-apod` | Today's Astronomy Picture of the Day + breakdown |
+| `/mc-iss` | Real-time ISS coordinates + map links |
+| `/mc-mars` | Latest Mars temperature + Sol count from rover telemetry |
 
 ---
 
