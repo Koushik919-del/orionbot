@@ -12,7 +12,7 @@ Three slash commands, three live data pulls:
 |---|---|
 | `/mc-apod` | Today's Astronomy Picture of the Day(Sometimes it might be a video)|
 | `/mc-iss` | Where the ISS is right now |
-| `/mc-mars` | Latest pictures of Mars from the rover |
+| `/mc-mars` | Latest pictures of Mars from the Rover |
 
 ---
 
