@@ -23,5 +23,8 @@ Reverse geocoding for the ISS map link uses Nominatim from OpenStreetMap, limite
 NOTES
 DEMO_KEY caps out at 30 requests an hour, so it's fine for messing around but you'll want a real key before putting this in front of people. ISS position updates every few seconds, so if you want a fresher location just run /mc-iss again.
 
+
+For the Ship Reviewer: I'm sorry, I didn't know we can't use AI for the README
+
 LICENSE
 MIT - use it, break it, build on it.
