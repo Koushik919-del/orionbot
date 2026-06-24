@@ -9,7 +9,7 @@ logging.basicConfig(level=logging.INFO)
 
 # Initialize Slack Bolt App
 app = App(
-    token="xoxb-2210535565-11393247973702-Ups0qW2P1Z0IqgnrYEHKSS2V",
+    token="xoxb-2210535565-11393247973702-pQynW3aq5sZjcRlnfq7GlKpx",
     signing_secret="jNROyrtH4R3ekGMbUvotAg6R"
 )
 handler = SlackRequestHandler(app)
