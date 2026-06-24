@@ -7,6 +7,10 @@ from slack_bolt.adapter.flask import SlackRequestHandler
 # Enable logging
 logging.basicConfig(level=logging.INFO)
 
+# Initialize the Slack Bolt app
+app = App(
+    token=os.environ.get("SLACK_BOT_TOKEN"),
+    signing_secret=os.environ.get("SLACK_SIGNING_SECRET")
 )
 handler = SlackRequestHandler(app)
 
