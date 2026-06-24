@@ -36,7 +36,7 @@ def listen_iss(ack, respond):
     ack()
     handle_iss(respond)
 
-@app.command("/mars-weather")
+@app.command("/mars")
 def listen_mars(ack, respond):
     ack()
     handle_mars(respond)
