@@ -7,10 +7,10 @@ from slack_bolt.adapter.flask import SlackRequestHandler
 # Enable logging
 logging.basicConfig(level=logging.INFO)
 
-# Initialize Slack Bolt App
+# Initialize Slack Bolt App using environment variables
 app = App(
-    token="xoxb-2210535565-11393247973702-pQynW3aq5sZjcRlnfq7GlKpx",
-    signing_secret="99a358f606d3f51a5e18e37bd0b2d679"
+    token=os.environ.get("SLACK_BOT_TOKEN"),
+    signing_secret=os.environ.get("SLACK_SIGNING_SECRET")
 )
 handler = SlackRequestHandler(app)
 
@@ -36,7 +36,7 @@ def listen_iss(ack, respond):
     ack()
     handle_iss(respond)
 
-@app.command("/mars")
+@app.command("/mars-weather")
 def listen_mars(ack, respond):
     ack()
     handle_mars(respond)
