@@ -3,9 +3,9 @@ OrionBot
 This is a Slack bot I built for Stardance. It connects your Slack workspace directly to NASA's live data feeds, so instead of opening a NASA site every time you want to check something, you just type a slash command and the data shows up right in your channel.
 
 COMMANDS
-/mc-apod - pulls today's Astronomy Picture of the Day (sometimes it's a video instead of a photo)
-/mc-iss - shows where the ISS is right now
-/mc-mars - grabs the latest pictures of Mars from the Rover
+/apod - pulls today's Astronomy Picture of the Day (sometimes it's a video instead of a photo)
+/iss-track - shows where the ISS is right now
+/mars - grabs the latest pictures of Mars from the Rover
 
 SETUP
 You'll need Python 3.10+, a Slack App with slash commands turned on, and a free NASA API key from api.nasa.gov (DEMO_KEY works fine if you're just testing). You'll also need a public HTTPS URL to point Slack at - ngrok is the easiest way to get one while developing locally.
