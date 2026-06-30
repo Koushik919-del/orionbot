@@ -1,5 +1,6 @@
 import os
 import logging
+import threading
 from flask import Flask, request
 from slack_bolt import App
 from slack_bolt.adapter.flask import SlackRequestHandler
@@ -29,17 +30,17 @@ from commands.mars import handle_mars
 @app.command("/apod")
 def listen_apod(ack, respond):
     ack()
-    handle_apod(respond)
+    threading.Thread(target=handle_apod, args=(respond,)).start()
 
 @app.command("/iss-track")
 def listen_iss(ack, respond):
     ack()
-    handle_iss(respond)
+    threading.Thread(target=handle_iss, args=(respond,)).start()
 
 @app.command("/mars")
 def listen_mars(ack, respond):
     ack()
-    handle_mars(respond)
+    threading.Thread(target=handle_mars, args=(respond,)).start()
 
 if __name__ == "__main__":
     # Render automatically assigns a PORT variable; locally we fall back to 3000
