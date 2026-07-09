@@ -5,7 +5,7 @@ This is a Slack bot I built for Stardance. It connects your Slack workspace dire
 COMMANDS
 /apod - pulls today's Astronomy Picture of the Day (sometimes it's a video instead of a photo)
 /iss-track - shows where the ISS is right now
-/mars - grabs the latest pictures of Mars from the Rover
+/mars - Grabs the latest info from the Mars rover
 
 SETUP
 You'll need Python 3.10+, a Slack App with slash commands turned on, and a free NASA API key from api.nasa.gov (DEMO_KEY works fine if you're just testing). You'll also need a public HTTPS URL to point Slack at - ngrok is the easiest way to get one while developing locally.
