@@ -2,9 +2,11 @@ OrionBot
 
 This is a Slack bot I built for Stardance. It connects your Slack workspace directly to NASA's live data feeds, so instead of opening a NASA site every time you want to check something, you just type a slash command and the data shows up right in your channel.
 
-COMMANDS
+COMMANDS:
 /apod - pulls today's Astronomy Picture of the Day (sometimes it's a video instead of a photo)
+
 /iss-track - shows where the ISS is right now
+
 /mars - Grabs the latest info from the Mars rover
 
 SETUP
